@@ -20,12 +20,15 @@ function status(bmi) {
     document.getElementById("result").style.textShadow="1px 1px 15px green";
     return desc ;
     
-}else{
-    let desc = "لديك زيادة في الوزن";
-    document.getElementById("result").style.color="red";
-    document.getElementById("result").style.textShadow="1px 1px 15px red";
-    return desc;
-    }
+    }else if (bmi > 25) {
+        let desc = "لديك زيادة في الوزن";
+        document.getElementById("result").style.color="red";
+        document.getElementById("result").style.textShadow="1px 1px 15px red";
+        return desc;
+    }else{
+        let desc = "no value entered";
+        return desc;
+        }
 }
 
 function calculate() {
@@ -37,5 +40,18 @@ function calculate() {
     let desc = status(bmi);
     
     div.innerText = bmi + " == " + desc;
+}
+
+function add() {
+    let task = document.getElementById("task")
+    let list = document.getElementById("list")
+    
+    list.innerHTML += `
+    <input class="checkbox" type="checkbox">${task.value}</input>`;
+    task.value= "";
     
 }
+function del(){
+    list.innerHTML =``
+}
+
